@@ -1,7 +1,7 @@
 """
 1 - Crie uma função que encontra o primeiro duplicado, considerando o segundo número
 como duplicação. Retorne a duplicação considerada
-
+"""
 
 lista_numeros_inteiros = [
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -37,8 +37,8 @@ def num_duplicado(param_lista_numeros_inteiros):
 
 for lista in lista_numeros_inteiros:
     print(lista, num_duplicado(lista))
-
-
+    
+"""
 2 - Considerando duas listas de inteiros ou floats (lista A e lista B)
 Some os valores nas listas retornando uma nova lista com os valores somados:
 Se uma lista for maior que a outra, a soma só vai considerar o tamanho da
