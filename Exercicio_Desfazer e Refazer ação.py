@@ -35,8 +35,8 @@ list_tarefas = []
 lixo = []
 
 
-def adicionar():
-    print( "----------------ADICIONAR TAREFAS----------------" )
+def adicionar_tarefa():
+    print("----------------ADICIONAR TAREFAS----------------")
     tarefas = str(input("Digite a tarefa que quer adicionar: "))
     if tarefas in list_tarefas:
         print("Essa tarefa já existe")
@@ -45,54 +45,48 @@ def adicionar():
         print("Tarefa cadastrada com sucesso!!!")
 
 
-def listar():
-    print( "----------------LISTAR TAREFAS----------------" )
-    if list_tarefas != []:
-        list_atual =list_tarefas.copy()
-        list_atual.sort()
-        for i in range(len(list_tarefas)):
-            atual = list_atual[i]
-            if atual in list_tarefas:
-                print(f'[{atual}]')
-        return list_tarefas
+def listar_tarefas():
+    print('--------------Listar Tarefas-------------')
+    print('Tarefas: ')
+    print(list_tarefas)
+    print()
 
 
 def desfazer():
-    print("----------------DESFAZER AÇÃO----------------")
+    print("---------Desfazer ação-------------")
     if not list_tarefas:
-        print("Nada a desfazer")
+        print('Nada a desfazer')
         return
 
-    list_new = list_tarefas.pop
+    list_new = list_tarefas.pop()
     lixo.append(list_new)
 
 
-
 def refazer():
-    print("----------------REFAZER AÇÃO----------------")
+    print( "---------Refazer ação-------------" )
     if not lixo:
-        print("Nada a refazer")
+        print('Nada a refazer')
         return
 
     list_new = lixo.pop()
     list_tarefas.append(list_new)
 
 
-
 if __name__ == '__main__':
     movimento = menu_movimentos()
     while movimento in OPCOES_VALIDAS:
         if movimento == 'A':
-            adicionar()
+            adicionar_tarefa()
             movimento = menu_movimentos()
         elif movimento == 'L':
-            listar()
+            listar_tarefas()
             movimento = menu_movimentos()
         elif movimento == 'D':
             desfazer()
             movimento = menu_movimentos()
         elif movimento == 'R':
             refazer()
+            movimento = menu_movimentos()
         elif movimento == 'S':
             print("A lista de tarefas irá ser fechada!!!")
             break
